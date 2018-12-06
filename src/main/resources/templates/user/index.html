@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xml:th="http://www.thymeleaf.org">
+<script src="https://cdn.bootcss.com/jquery/1.10.0/jquery.js"></script>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+    <form method="post">
+        账号：<input type="text" name="userName"/>
+        密码：<input type="password" name="password"/>
+        <input type="button" onclick="submitForm()" value="登录"/>
+        <span style="color: #293043"></span>
+    </form>
+</body>
+
+
+<script>
+    function submitForm() {
+        if(!$("input[name='userName']").val()){
+            alert("请输入账号！");
+            return;
+        }
+        if(!$("input[name='password']").val()){
+            alert("请输入密码！");
+            return;
+        }
+        var data = $("form").serialize();
+        $.post('login',data,function (json) {
+            if(json.status == 'success'){
+                window.location.href='hello';
+            }else {
+                $('span').text(json.message);
+            }
+
+
+        })
+    }
+</script>
+</html>
