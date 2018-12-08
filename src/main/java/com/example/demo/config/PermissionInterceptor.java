@@ -1,7 +1,7 @@
 package com.example.demo.config;
 
 
-import org.springframework.context.annotation.Configuration;
+
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -20,8 +20,7 @@ public class PermissionInterceptor implements HandlerInterceptor{
             final HttpSession session = httpServletRequest.getSession();
             final Object user2 = session.getAttribute("user");
             if(user2 != null){
-                httpServletResponse.sendRedirect("/user/hello");
-                return false;
+                return true;
             }
             String url = httpServletRequest.getRequestURI().toString();
             if(url.endsWith("login") || url.endsWith("index")){

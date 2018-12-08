@@ -61,4 +61,20 @@ public class UserController {
         httpServletRequest.getSession().setAttribute("user",user1);
         return new ResultJson(ResultJson.SUCCESS,"验证通过");
     }
+
+    @RequestMapping("logout")
+    @ResponseBody
+    public String logout(HttpServletResponse response, HttpServletRequest request){
+        try {
+            final HttpSession session =request.getSession();
+            if(session != null){
+                session.removeAttribute("user");
+                session.invalidate();
+            }
+            response.sendRedirect(request.getContextPath()+"/user/index");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return "注销失败";
+    }
 }
