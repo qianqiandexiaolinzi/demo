@@ -1,5 +1,5 @@
 <!doctype html>
-<html xml:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 
 	<head>
 		<meta charset="UTF-8" />
@@ -8,10 +8,11 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 		<meta http-equiv="Cache-Control" content="no-siteapp" />
-		<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
-		<link rel="stylesheet" href="./static/css/font.css" />
-		<link rel="stylesheet" href="./static/css/weadmin.css" />
-		<script type="text/javascript" src="./static/layui/layui.js" charset="utf-8"></script>
+		<link rel="shortcut icon" th:href="@{/favicon.ico}" type="image/x-icon" />
+		<link rel="stylesheet" th:href="@{/css/font.css}" />
+		<link rel="stylesheet" th:href="@{/css/weadmin.css}" />
+		<script th:src="@{/layui/layui.js}" charset="utf-8"></script>
+		<div th:replace="common/common :: common"></div>
 
 	</head>
 

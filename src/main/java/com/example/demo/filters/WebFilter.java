@@ -35,7 +35,7 @@ public class WebFilter implements Filter {
             filterChain.doFilter(servletRequest,servletResponse);
             return;
         }
-        if (url.endsWith("login.html") || url.endsWith("dologin.json")) {
+        if (url.endsWith("login.html") || url.endsWith("doLogin.json")) {
             filterChain.doFilter(servletRequest,servletResponse);
             return;
         }

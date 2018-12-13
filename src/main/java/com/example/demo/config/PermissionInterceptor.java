@@ -16,20 +16,6 @@ import java.io.IOException;
 public class PermissionInterceptor implements HandlerInterceptor{
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
-        try{
-            final HttpSession session = httpServletRequest.getSession();
-            final Object user2 = session.getAttribute("user");
-            if(user2 != null){
-                return true;
-            }
-            String url = httpServletRequest.getRequestURI().toString();
-            if(url.endsWith("login") || url.endsWith("index")){
-                return true;
-            }
-            httpServletResponse.sendRedirect("index");
-        }catch (IOException e){
-            e.printStackTrace();
-        }
         return true;
     }
 

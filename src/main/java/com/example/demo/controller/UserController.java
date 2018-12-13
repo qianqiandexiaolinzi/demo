@@ -44,7 +44,7 @@ public class UserController {
         return userService.save(user);
     }
 
-    @RequestMapping("login")
+/*    @RequestMapping("login")
     @ResponseBody
     public ResultJson login(String userName,String password, HttpServletRequest httpServletRequest, HttpServletResponse response){
 
@@ -59,7 +59,7 @@ public class UserController {
         }
         httpServletRequest.getSession().setAttribute("user",user1);
         return new ResultJson(ResultJson.SUCCESS,"验证通过");
-    }
+    }*/
 
     @RequestMapping("logout")
     @ResponseBody
